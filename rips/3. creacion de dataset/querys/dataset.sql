@@ -1,20 +1,4 @@
-/*
- * 		Dataset
- * 			'af','us','ac','ap','au','ah','an','am',
- * 			pendiente = 'at'
- * 
- */
-
--- SELECT * FROM VP_INFORMACION.outliers.df_af LIMIT 100;
--- SELECT * FROM VP_INFORMACION.outliers.df_us LIMIT 100;
--- SELECT * FROM VP_INFORMACION.outliers.df_ac LIMIT 100;
--- SELECT * FROM VP_INFORMACION.outliers.df_ap LIMIT 100;
--- SELECT * FROM VP_INFORMACION.outliers.df_au LIMIT 100;
--- SELECT * FROM VP_INFORMACION.outliers.df_ah LIMIT 100;
--- SELECT * FROM VP_INFORMACION.outliers.df_an LIMIT 100;
--- SELECT * FROM VP_INFORMACION.outliers.df_am LIMIT 100;
-
-
+-- Query creacion de Dataset en base a los RIPS
 
 WITH df AS (
 	SELECT
