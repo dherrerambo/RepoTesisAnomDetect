@@ -1,0 +1,22 @@
+SELECT
+    CAST(f.ID AS bigint) AS id
+    --, f.FUENTE
+    , f.id_carga
+    , f._PRESTADOR AS PRESTADOR
+    --, f.IPS_NIT, f.COD_PRESTADOR
+    , f._FACTURA AS factura
+    --, f.FACTURA
+    , f.FECHA_EXP_FACTURA
+    , f.FECHA_INICIO
+    , f.FECHA_FIN
+    , f.REGIMEN
+    , f._EPS AS eps
+    --, f.CODENTADMIN, f.NOMENTADMIN
+    , f._CONTRATO AS contrato
+    --, f.NUM_CONTRATO
+    , f.VALOR_TOTAL_COPAGO
+    , f.VALOR_COMISION
+    , f.VALOR_DESCUENTOS
+    , f.VALOR_NETO
+    --, f.FECHA_CREACION_TABLA, f.FILENAME, f.FECHA_REGISTRO_SNOWFLAKE, f.NUM_POS_FILE
+FROM VP_INFORMACION.OUTLIERS.RIPS_AF f
