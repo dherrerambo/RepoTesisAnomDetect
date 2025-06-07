@@ -123,7 +123,11 @@ def anomaly_detector(data, X_, y, name_detector:str, scoring_metric:str, contami
     # if show_prints==True: print("-"*50, name_detector)
     if name_detector=="AutoEncoder":
         nn_layers = make_hidden_layers(no_features=X_.shape[1])
-        detector = eval(f"{name_detector}(hidden_neurons={nn_layers}, verbose=0, contamination={contamination})")
+        try:
+            detector = eval(f"{name_detector}(hidden_neurons={nn_layers}, verbose=0, contamination={contamination})")
+        except:
+            ## changehidden_neuron for hidden_neuron_list 
+            detector = eval(f"{name_detector}(hidden_neuron_list={nn_layers}, verbose=0, contamination={contamination})")
     else:
         detector = eval(f"{name_detector}(contamination={contamination})")
     if logger!=None: logger.info(f"starting {name_detector}")

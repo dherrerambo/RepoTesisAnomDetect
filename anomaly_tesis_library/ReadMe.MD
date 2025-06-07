@@ -1,27 +1,48 @@
-# Make .whl
+# Guia para crear la libreria
 
-## 1. Preparar un entorno virtual
-~~~ powershell
-python --version
+instalar
+~~~cmd
+pip install .\whl\lib_anomaly-1.1-py2.py3-none-any.whl --force-reinstall --no-dependencies
+~~~
+
+---
+
+## Ruta de trabajo
+~~~cmd
+cd "C:\Users\dherr\OneDrive - Universidad Tecnológica de Bolívar\TesisAnomDetect"
+cd ".\anomaly_tesis_library"
+~~~
+
+## Identificar Python
+~~~cmd
+python --versión
+py --version
+~~~
+
+## entorno virtual
+~~~cmd
 python -m venv .venv
-Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
 .venv\Scripts\activate
 ~~~
 
-## 2. instalar librerias
-~~~ powershell
+## crear whl
+~~~cmd
 pip install wheel
+python setup.py check sdist bdist_wheel --universal
 ~~~
 
-## 3. Crear libreria de tesis
-~~~ powershell
-cd anomaly_tesis_library
-pip uninstall -y lib_anomaly
-python setup.py check sdist bdist_wheel --universal
+## limpiar
+~~~powershell
 Move-Item -Path .\dist\* -Filter lib_anomaly-* -Destination .\whl\ -force
 Remove-Item –path .\build\ -Force -Recurse
 Remove-Item –path .\lib_anomaly.egg-info\ -Force -Recurse
 Remove-Item –path .\dist\ -Force -Recurse
-cd..
-pip install .\anomaly_tesis_library\whl\lib_anomaly-0.1-py2.py3-none-any.whl --force-reinstall --no-dependencies
+~~~
+
+## finalizar
+~~~cmd
+deactivate
+~~~
+~~~powershell
+Remove-Item –path .\.venv\ -Force -Recurse
 ~~~
